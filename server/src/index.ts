@@ -1,17 +1,33 @@
 import express from 'express';
+import dotenv from 'dotenv';
+import mongoose from 'mongoose';
+import usersRoute from './routes/usersRoute';
+import reportsRoute from './routes/reportsRoute';
+import examsRoute from './routes/examsRoute';
 
-const port = 8000;
+dotenv.config();
 
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('Hi there');
-});
+const port = process.env.PORT || 5000;
 
-app.get('/za', (req, res) => {
-  res.send('dsadsaza');
-});
+mongoose.set('strictQuery', false);
+mongoose
+  .connect(process.env.MONGO_URI! || '')
+  .then(() => {
+    console.log('connected to db');
+  })
+  .catch((err) => {
+    throw err;
+  });
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use('/api/users', usersRoute);
+app.use('/api/exams', examsRoute);
+app.use('/api/reports', reportsRoute);
 
 app.listen(port, () => {
-  console.log(`now listening port ZAAA ${port}`);
+  console.log(`now listening port ${port}`);
 });

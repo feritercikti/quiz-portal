@@ -11,4 +11,7 @@
     width: 100%;
     border-radius: 5px !important;
   }
+  .body {
+    width: 100%;
+  }
 }

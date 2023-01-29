@@ -1,15 +1,39 @@
-import { Form } from 'antd';
+import { Form, message } from 'antd';
+import axios from 'axios';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { registerUser } from '../apicalls/users';
+
+interface FormData {
+  name: string;
+  email: string;
+  password: string;
+}
 
 const Register = () => {
+  const navigate = useNavigate();
+
+  const onFinish = async (values: FormData) => {
+    try {
+      const response = await registerUser(values);
+      if (response.success) {
+        message.success(response.message);
+        navigate('/login');
+      } else {
+        message.error(response.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="flex justify-center items-center h-screen w-screen bg-slate-900">
       <div className="p-3 bg-white w-[400px] rounded ">
         <div className="flex flex-col">
           <h1 className="text-center font-bold">REGISTER</h1>
           <div className="border-b-2 mt-2"></div>
-          <Form layout="vertical" className="mt-2">
+          <Form layout="vertical" className="mt-2" onFinish={onFinish}>
             <Form.Item name="name" label="Name">
               <input type="text" />
             </Form.Item>
