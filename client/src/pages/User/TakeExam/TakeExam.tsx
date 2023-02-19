@@ -132,12 +132,12 @@ const TakeExam = () => {
         )}
         {view.section === 'questions' && (
           <div className="flex flex-col gap-2 text-white">
-            <div className="flex justify-between">
+            <div className="flex justify-between gap-10">
               <h1 className="text-xl  ">
                 {selectedQuestionIndex + 1}: {''}
                 {questions[selectedQuestionIndex]?.['name']}
               </h1>
-              <div className="bg-black rounded-[50%] p-2 flex items-center justify-center h-20 w-20 ">
+              <div className="bg-black rounded-[50%] p-2 flex items-center justify-center h-12 w-12 ">
                 <span className="text-2xl">{secondsLeft}</span>
               </div>
             </div>
