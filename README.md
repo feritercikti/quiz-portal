@@ -2,6 +2,7 @@
 
 ## Admin Dashboard
 
+![adminexams](https://user-images.githubusercontent.com/81822860/220090335-cdb6031c-ebfd-43a2-bbbf-4db959d63c28.png)
 ![admin-1](https://user-images.githubusercontent.com/81822860/219976294-4e9d9c06-a987-4798-98cb-19c63a1df0fd.png)
 ![admin-3](https://user-images.githubusercontent.com/81822860/219976326-aa2494cf-b9b9-4d24-a6e7-f8bf9db4e977.png)
 ![admin-2](https://user-images.githubusercontent.com/81822860/219976319-a341b3df-cc36-455d-993e-4c025d3836c9.png)
